@@ -1,0 +1,24 @@
+{
+	"name": "page-replacement",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cichowlasp/page-replacement.git"
+	},
+	"author": "Piotr Cichowlas",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/cichowlasp/page-replacement/issues"
+	},
+	"homepage": "https://github.com/cichowlasp/page-replacement#readme",
+	"dependencies": {
+		"prompt": "^1.1.0",
+		"prompt-sync": "^4.2.0"
+	}
+}
