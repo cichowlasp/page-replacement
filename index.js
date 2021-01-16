@@ -1,5 +1,7 @@
 const input = require('prompt-sync')();
+const { performance } = require('perf_hooks');
 const FIFO = require('./fifo');
+const LRU = require('./lru');
 
 // Functions:
 const getPages = (number) => {
@@ -12,21 +14,24 @@ const getPages = (number) => {
 	return tab;
 };
 
-const LRU = (size, pages) => {
+const LFU = (size, pages) => {
 	const timeStart = performance.now();
 	let pageFaults = 0;
 	let pageHits = 0;
 	let memory = [];
 	let lastRecentlyUsedIndex = 0;
-	for (const [el, index] of pages.entries()) {
+	for (const el of pages) {
 		if (memory.length === size) {
 			if (memory.includes(el)) {
 				pageHits++;
+				lastRecentlyUsedIndex =
+					lastRecentlyUsedIndex === 2 ? 0 : lastRecentlyUsedIndex++;
 			} else {
 				memory[lastRecentlyUsedIndex] = el;
 				pageFaults++;
+				lastRecentlyUsedIndex =
+					lastRecentlyUsedIndex === 2 ? 0 : lastRecentlyUsedIndex++;
 			}
-			lastRecentlyUsedIndex = (index) => {};
 		} else {
 			if (memory.includes(el)) {
 				pageHits++;
@@ -37,6 +42,7 @@ const LRU = (size, pages) => {
 		}
 	}
 	return {
+		name: 'LFU',
 		memory,
 		pageFaults,
 		pageHits,
@@ -47,8 +53,11 @@ const LRU = (size, pages) => {
 // Main:
 console.log('Page Replecament Simulation');
 const pagesNumber = input('How many pages do you want to generate? : ');
-const pages = getPages(pagesNumber);
+// const pages = getPages(pagesNumber);
+const pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 1, 2, 0];
 const size = 3;
 console.log('Your pages:');
 console.log(pages);
 console.log('FIFO: ', FIFO(size, pages));
+console.log('LRU: ', LRU(size, pages));
+console.log('LFU: ', LFU(size, pages));
