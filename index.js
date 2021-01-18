@@ -20,7 +20,7 @@ console.log('Page Replecament Simulation');
 // const pagesNumber = input('How many pages do you want to generate? : ');
 // const pages = getPages(pagesNumber);
 const pages = [7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 3];
-const size = 4;
+const size = 3;
 console.log('Your pages:');
 console.log(pages);
 console.log('FIFO: ', FIFO(size, pages));
