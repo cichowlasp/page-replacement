@@ -14,7 +14,7 @@ const FIFO = (size, pages) => {
 				memory[indexOfTheOldest] = el;
 				pageFaults++;
 				indexOfTheOldest =
-					indexOfTheOldest === size - 1 ? 0 : indexOfTheOldest++;
+					indexOfTheOldest === size - 1 ? 0 : indexOfTheOldest + 1;
 			}
 		} else {
 			if (memory.includes(el)) {
