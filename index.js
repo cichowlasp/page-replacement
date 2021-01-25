@@ -1,5 +1,4 @@
 const input = require('prompt-sync')();
-const { performance } = require('perf_hooks');
 const FIFO = require('./fifo');
 const LRU = require('./lru');
 const LFU = require('./lfu');
