@@ -1,77 +1,37 @@
 [{
     "name": "FIFO",
     "memory": [
-        7,
-        6,
-        3
+        6
     ],
-    "pageFaults": 7,
-    "pageHits": 3,
-    "time": 0.05747497081756592
+    "pageFaults": 1,
+    "pageHits": 0,
+    "time": 0.03374999761581421
 }, {
     "name": "LRU",
     "memory": [
-        7,
-        6,
-        3
+        6
     ],
-    "pageFaults": 7,
-    "pageHits": 3,
-    "time": 0.01730501651763916
+    "pageFaults": 1,
+    "pageHits": 0,
+    "time": 0.014149963855743408
 }, {
     "name": "FCFS",
     "processes": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
+        0
     ],
     "burstTime": [
-        1,
-        5,
-        1,
-        6,
-        3,
-        2,
-        6,
-        6,
-        4,
         1
     ],
-    "averageTime": 14.9,
-    "averageTournAroundTime": 18.4
+    "averageTime": 0,
+    "averageTournAroundTime": 1
 }, {
     "name": "SJF",
     "processes": [
-        0,
-        2,
-        9,
-        5,
-        4,
-        8,
-        1,
-        3,
-        6,
-        7
+        0
     ],
     "burstTime": [
-        1,
-        1,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        6,
-        6
+        1
     ],
-    "averageTime": 10,
-    "averageTournAroundTime": 13.5
+    "averageTime": 0,
+    "averageTournAroundTime": 1
 }]

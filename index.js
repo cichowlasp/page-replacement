@@ -39,9 +39,27 @@ const generateProcesses = (number) => {
 
 // Main:
 console.log('Project SO');
-const numberOfPages = input('Type number of pages to generate : '); // String can be provided, no type check
+let numberOfPages = input('Type number of pages to generate : ');
+while (
+	!(Number.isInteger(parseInt(numberOfPages, 10)) && numberOfPages !== '0')
+) {
+	numberOfPages = input(
+		'Type number of pages to generate (must be a number and must be bigger than 0) : '
+	);
+}
+// String can be provided, no type check
 generatePages(numberOfPages);
-const numberOfProcesses = input('Type number of processes to generate : '); // String can be provided, no type check
+let numberOfProcesses = input('Type number of processes to generate : ');
+while (
+	!(
+		Number.isInteger(parseInt(numberOfProcesses, 10)) &&
+		numberOfProcesses !== '0'
+	)
+) {
+	numberOfProcesses = input(
+		'Type number of processes to generate (must be a number and must be bigger than 0) : '
+	);
+} // String can be provided, no type check
 generateProcesses(numberOfProcesses);
 const jsonDataPages = readFileSync('page-examples.json');
 const pages = JSON.parse(jsonDataPages);
