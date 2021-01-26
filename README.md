@@ -1,10 +1,12 @@
-# Page Replacement algorithms and cpu scheduling in JS
+# Page replacement algorithms and cpu scheduling in JS
 
 ## Usage
 
-<!-- Choose between english and polish and stick to 1 language -->
--   nalezy posiadać zainstalowany npm
--   nastepnie wpisac 'npm i' aby zainstalowac paczki uzywane w projekcie
--   aby uruchomic program nalezy uzyc komendy 'npm start'
+-   make sure you have npm installed!
+-   in the root directory type 'npm i' to install all needed packages
+-   then type 'npm start' to run this project
 
-## Algorithms FIFO ,LRU, SCFS, SJF
+## Algorithms:
+
+-   FIFO ,LRU => Page Replacement
+-   SCFS, SJF => cpu scheduling
