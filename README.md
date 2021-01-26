@@ -1,4 +1,4 @@
-# Page Replacement algorithms in JS
+# Page Replacement algorithms and cpu scheduling in JS
 
 ## Usage
 
@@ -6,4 +6,4 @@
 -   nastepnie wpisac 'npm i' aby zainstalowac paczki uzywane w projekcie
 -   aby uruchomic program nalezy uzyc komendy 'npm start'
 
-## Algorithms FIFO ,LRU, LFU, MFU
+## Algorithms FIFO ,LRU, SCFS, SJF
