@@ -6,6 +6,7 @@ const FIFO = (size, pages) => {
 	let pageHits = 0;
 	let memory = [];
 	let indexOfTheOldest = 0;
+	// Messy loop, consider refactoring it, create smaller functions etc. If statements can be simplified too.
 	for (const el of pages) {
 		if (memory.length === size) {
 			if (memory.includes(el)) {
