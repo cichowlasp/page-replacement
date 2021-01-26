@@ -13,23 +13,40 @@ const generatePages = (number) => {
 	const max = 7;
 	for (let i = 0; i < number; i++) {
 		const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-		writeFileSync('page-examples.txt', `${randomNumber}\n`, {
-			flag: append,
-		});
+		tab.push(randomNumber);
 	}
-	return tab;
+	writeFileSync('page-examples.json', `${JSON.stringify(tab, null, 4)}`, {
+		flag: write,
+	});
+};
+
+const generateProcesses = (number) => {
+	const tab = [];
+	const min = 1;
+	const max = 10;
+	for (let i = 0; i < number; i++) {
+		const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+		tab.push([i, randomNumber]);
+	}
+	writeFileSync(
+		'processes-examples.json',
+		`${JSON.stringify(tab, null, 4)}`,
+		{
+			flag: write,
+		}
+	);
 };
 
 // Main:
-const testArray = [
-	[1, 10],
-	[2, 5],
-	[3, 8],
-];
 console.log('Project SO');
 const numberOfPages = input('Type number of pages to generate : '); // String can be provided, no type check
 generatePages(numberOfPages);
-const pages = readFileSync('page-examples.txt', 'utf-8').trim().split('\n');
+const numberOfProcesses = input('Type number of processes to generate : '); // String can be provided, no type check
+generateProcesses(numberOfProcesses);
+const jsonDataPages = readFileSync('page-examples.json');
+const pages = JSON.parse(jsonDataPages);
+const jsonDataProcesses = readFileSync('processes-examples.json');
+const processes = JSON.parse(jsonDataProcesses);
 const size = 3;
 console.log('Your pages:');
 console.log(pages);
@@ -37,14 +54,22 @@ const FIFOresults = FIFO(size, pages);
 console.log('FIFO: ', FIFOresults);
 const LRUresults = LRU(size, pages);
 console.log('LRU: ', LRUresults);
-console.log('FCFS: ', FCFS(testArray));
-console.log('SJF: ', SJF(testArray));
-console.log('Your results are written to results.txt file');
+const FCFSresults = FCFS(processes);
+console.log('FCFS: ', FCFSresults);
+const SJFresults = SJF(processes);
+console.log('SJF: ', SJFresults);
+console.log('Your results are written to results.json file');
 writeFileSync(
-	'results.txt',
-	`FIFO: {${JSON.stringify(FIFOresults)}}, LRU: {${JSON.stringify(
-		LRUresults
-	)}}`,
+	'results.json',
+	`[${JSON.stringify(FIFOresults, null, 4)}, ${JSON.stringify(
+		LRUresults,
+		null,
+		4
+	)}, ${JSON.stringify(FCFSresults, null, 4)}, ${JSON.stringify(
+		SJFresults,
+		null,
+		4
+	)}]`,
 	{
 		flag: write,
 	}

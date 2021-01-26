@@ -1,0 +1,77 @@
+[{
+    "name": "FIFO",
+    "memory": [
+        7,
+        6,
+        3
+    ],
+    "pageFaults": 7,
+    "pageHits": 3,
+    "time": 0.05747497081756592
+}, {
+    "name": "LRU",
+    "memory": [
+        7,
+        6,
+        3
+    ],
+    "pageFaults": 7,
+    "pageHits": 3,
+    "time": 0.01730501651763916
+}, {
+    "name": "FCFS",
+    "processes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "burstTime": [
+        1,
+        5,
+        1,
+        6,
+        3,
+        2,
+        6,
+        6,
+        4,
+        1
+    ],
+    "averageTime": 14.9,
+    "averageTournAroundTime": 18.4
+}, {
+    "name": "SJF",
+    "processes": [
+        0,
+        2,
+        9,
+        5,
+        4,
+        8,
+        1,
+        3,
+        6,
+        7
+    ],
+    "burstTime": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        6,
+        6
+    ],
+    "averageTime": 10,
+    "averageTournAroundTime": 13.5
+}]
