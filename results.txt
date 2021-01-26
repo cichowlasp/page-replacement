@@ -1,3 +1,4 @@
+I would consider wrapping the keys and non-numeric values in double quotes (") and treat them like json strings, you can even switch to .json file from .txt
 FIFO:{
 		name: FIFO,
 		memory: 3,1,2,

@@ -1,3 +1,4 @@
+// Basicly, look at comments in FCFS, functions are duplicated, consider exporting them to another files/modules and just reuse them
 const { performance } = require('perf_hooks');
 
 const SJF = (processesToSort) => {
@@ -15,6 +16,7 @@ const SJF = (processesToSort) => {
 	const burstTime = processesToSort.map((element) => element[1]);
 
 	const getWaitingTime = (processes, burstTime) => {
+		// Useless console.log
 		console.log(processes);
 		let waitingTime = new Array(burstTime.length).fill(0);
 		for (let i = 1; i < burstTime.length; i++) {

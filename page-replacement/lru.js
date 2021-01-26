@@ -1,3 +1,4 @@
+// Look fifo.js
 const { performance } = require('perf_hooks');
 
 const LRU = (size, pages) => {
