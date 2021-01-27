@@ -20,12 +20,14 @@ const generatePages = (number) => {
 	});
 };
 
-const generateProcesses = (number) => {
+const generateProcesses = (number, zeros = false) => {
 	const tab = [];
 	const min = 1;
 	const max = 10;
 	for (let i = 0; i < number; i++) {
-		const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+		const randomNumber = zeros
+			? 0
+			: Math.floor(Math.random() * (max - min + 1)) + min;
 		tab.push([i, randomNumber]);
 	}
 	writeFileSync(

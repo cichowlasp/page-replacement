@@ -1,34 +1,28 @@
-// Look fifo.js
-const { performance } = require('perf_hooks');
+const removeItemOnce = (arr, value) => {
+	var index = arr.indexOf(value);
+	if (index > -1) {
+		arr.splice(index, 1);
+	}
+	return arr;
+};
 
 const LRU = (size, pages) => {
-	const timeStart = performance.now();
 	let pageFaults = 0;
 	let pageHits = 0;
 	let memory = [];
-	let lastRecentlyUsedIndex = 0;
 	for (const el of pages) {
-		if (memory.length === size) {
-			if (memory.includes(el)) {
-				pageHits++;
-				lastRecentlyUsedIndex === size - 1
-					? 0
-					: lastRecentlyUsedIndex + 1;
-			} else {
-				memory[lastRecentlyUsedIndex] = el;
-				pageFaults++;
-				lastRecentlyUsedIndex =
-					lastRecentlyUsedIndex === size - 1
-						? 0
-						: lastRecentlyUsedIndex + 1;
-			}
+		if (memory.includes(el)) {
+			pageHits++;
+			memory = removeItemOnce(memory, el);
+			memory.push(el);
 		} else {
-			if (memory.includes(el)) {
-				pageHits++;
+			if (memory.length < size) {
+				memory.push(el);
 			} else {
-				pageFaults++;
+				memory.shift();
 				memory.push(el);
 			}
+			pageFaults++;
 		}
 	}
 	return {
@@ -36,7 +30,6 @@ const LRU = (size, pages) => {
 		memory,
 		pageFaults,
 		pageHits,
-		time: performance.now() - timeStart,
 	};
 };
 
